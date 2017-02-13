@@ -6,7 +6,8 @@ import { Actions } from 'react-native-router-flux';
 import {
   View,
   StyleSheet,
-  AppRegistry
+  AppRegistry,
+  StatusBar,
   } from 'react-native';
 
 var RepoList = require('./app/pages/RepoList');
@@ -42,6 +43,11 @@ export default class NavigatorExample extends React.Component {
 
   render() {
      return (
+       <View style={{ flex: 1 }}>
+        <StatusBar
+          backgroundColor='#D32F2F'
+          barStyle='light-content'
+        /> 
         <Router navigationBarStyle={styles.navBar} titleStyle={styles.navBarTitleText} leftButtonIconStyle={styles.barButtonIconStyle} rightButtonTextStyle={styles.barButtonTextStyle}>
             <Scene key="root">
                <Scene key="RepoList" component={RepoList} title="RepoList" initial={true}  rightTitle='About' 
@@ -51,14 +57,15 @@ export default class NavigatorExample extends React.Component {
                <Scene key="About" component={About} title="About" direction="vertical" hideNavBar={true} />
                <Scene key="RepoDetail" component={RepoDetail} title="Detail"/>
             </Scene>
-        </Router>);    
+        </Router>
+        </View>   );    
   }
 }
 
 const styles = StyleSheet.create({
 
   navBar: {
-    backgroundColor: 'red',
+    backgroundColor: '#E53935',
   },
   navBarText: {
     fontSize: 16,
